@@ -1,6 +1,6 @@
 #!/bin/bash
 if [ $# -ne 1 ]; then
-	echo "Error: parameters problem" >&2
+	echo "Error: parameters problem"
 	exit 1	
 fi
 
