@@ -4,11 +4,6 @@ if [ $# -ne 1 ]; then
 	exit 1	
 fi
 
-#if [ $(dirname $1) == "." ]; then
-#	echo "we have a new directory"
-#else
-#	echo "we have a new file"
-#fi
 
 if mkdir "$1" 2>/dev/null; then
 	touch "./$1/friends"
