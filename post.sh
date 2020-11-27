@@ -9,13 +9,12 @@ if ! [ -d $1 ]; then
         echo "Error: Receiver does not exist"
         exit 1
 fi
-
-if ! [ -d $2 ]; then
-        echo "Error: Sender does not exist"
-        exit 1
+if [ ! -d "$2" ]; then
+	echo "Error: Sender does not exist"
+	exit 1
 fi
 
-if ! grep -q $2 ./$1/friends; then
+if ! grep -q "$2" "./$1/friends"; then
         echo "Error: Sender is not a friend of receiver"
         exit 1
 fi
