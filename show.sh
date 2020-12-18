@@ -10,9 +10,11 @@ if ! [ -d $1 ]; then
 	exit 1
 fi
 
+
 wall="$1/wall"
-num=$(wc -l $wall | cut -d " " -f1)
 echo "WallStart"
-head -n$num $wall
+./P.sh $1
+cat $wall
+./V.sh $1
 echo "WallEnd"
 exit 0
