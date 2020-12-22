@@ -7,19 +7,19 @@ param=$(echo "$input" | cut -d" " -f3-) # get the paramaters that was passed to 
 while true; do
         case "$request" in
                 create) # when create was the request
-                        echo $param | xargs ./create.sh > $user.pipe & # echo the paramaters, this is piped to xargs ./create.sh which takes the values echoed and passes them as standard input to ./create.sh
+                        echo "$param" | xargs ./create.sh > "$user.pipe" & # echo the paramaters, this is piped to xargs ./create.sh which takes the values echoed and passes them as standard input to ./create.sh
 			# this is then passed to the users pipe that was processed at the start, and this command is placed in the background using the & command
                         ;;
                 add)
-			echo $param | xargs ./add.sh > "$user.pipe" & # same as above but passed to ./add.sh
+			echo "$param" | xargs ./add.sh > "$user.pipe" & # same as above but passed to ./add.sh
                         ;;
                 post)	
 		
-                        echo $param | xargs ./post.sh > "$user.pipe" &
+                        echo "$param" | xargs ./post.sh > "$user.pipe" &
                         ;;
                 show)
 		
-                        echo $param | xargs ./show.sh > "$user.pipe" &
+                        echo "$param" | xargs ./show.sh > "$user.pipe" &
                         ;;
                 shutdown)
 			echo "server shutting down.." > "$user.pipe" & # need to send message to notify user and allow the user pipe to be removed

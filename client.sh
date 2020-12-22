@@ -44,7 +44,6 @@ if [[ $2 == "post" ]]; then # same as above but for post command
 		exit 1
 	fi
 	mkfifo "$1.pipe"
-	echo "$1 $2 $3 $4 '$5'"
 	./P.sh server.pipe
 	echo "$1 $2 $3 $4 '$5'" > server.pipe
 	./V.sh server.pipe
